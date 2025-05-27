@@ -3,7 +3,7 @@ import yt_dlp
 from models import Video, Audio, Metadata, Comment, Text
 import re
 
-cookies_path = '/opt/ai_workspace/Yingpeng/Mkt_AI内容审核/TT/cookies.txt'
+cookies_path = 'Your_path_to_cookies.txt'
 
 
 class TikTokDataCollector:
