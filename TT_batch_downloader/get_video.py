@@ -10,8 +10,6 @@ class GetTiktokVideo:
     def __init__(self, url_csv_path, video_download_path):
         self.url_list = self.get_url_list(url_csv_path)
         self.video_download_path = video_download_path  # directory to download videos
-        #self.id2url = "video/id2url.csv"
-        #self.create_csv_with_headers(self.id2url)
 
     def get_url_list(self, url_csv_path):
         # 尝试使用ISO-8859-1编码，这是最通用的编码之一
