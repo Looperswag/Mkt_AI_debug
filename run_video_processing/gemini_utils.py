@@ -3,10 +3,9 @@ import os
 from google import genai
 from google.genai import types
 
-def setup_gemini_client(project_id="idc-ipc", location="global"):
+def setup_gemini_client(project_id="your_project_id", location="your_location"):
     """
     设置并返回 Gemini API 客户端。
-    注意: GOOGLE_APPLICATION_CREDENTIALS 环境变量应在此函数调用前设置。
     """
     client = genai.Client(
         vertexai=True,
@@ -31,12 +30,7 @@ def label_video_with_gemini(client, video_path):
         prompt = '''
         请分析此扫地机器人产品视频，并根据以下四个标准进行打标。每个标准输出“合格”或“不合格”。
 
-        1.  **环境**：视频是否主要在室内拍摄？（室内为“合格”，室外为“不合格”）
-        2.  **清洁/认证展示**：视频中是否至少出现以下任一内容：a) 地面液体或者有色油污被机器清除干净的对比画面；b) TUV logo认证标志；c) 液体或者有色油污清洁干净后的拖布或者地板的对比画面（任一存在为“合格”，均不满足为“不合格”）
-        3.  **特定文案/口播**：视频的画面字幕或者口播中，是否出现了“hydrojet”和“deepclean”字样？（都出现为“合格”，其他情况均为“不合格”）
-        4.  **品牌识别**：视频的画面或口播中，是否出现了“Eufy”这个品牌名称？（出现为“合格”，未出现为“不合格”）
-
-        请将这四个标签的结果用“-”符号串联起来，最终输出格式严格为：“标签1结果-标签2结果-标签3结果-标签4结果”，例如：“合格-合格-不合格-合格”。不要包含任何其他文字或解释。
+        在此处填写标签需求；可用1、2、3、4分点来描述
         '''
         text_part = types.Part.from_text(text=prompt)
         
