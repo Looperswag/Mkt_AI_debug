@@ -1,9 +1,8 @@
 # run_video_processing/config.py
 
-KEY_PATH = "../idc-ipc-1dc332fa2fe3.json" # 确保路径正确
+KEY_PATH = "../your_key_file.json" # 确保路径正确
 
-DEFAULT_GEMINI_PROJECT_ID = "idc-ipc"
-DEFAULT_GEMINI_LOCATION = "global"
+DEFAULT_GEMINI_PROJECT_ID = "your_DEFAULT_GEMINI_PROJECT_ID"
+DEFAULT_GEMINI_LOCATION = "your_DEFAULT_GEMINI_LOCATION"
 
 VIDEO_EXTENSIONS = ['.mp4', '.avi', '.mov', '.mkv', '.flv', '.wmv']
-# 移除了 DEFAULT_SCENE_DETECT_THRESHOLD 和 DEFAULT_MIN_SCENE_LENGTH_FRAMES
