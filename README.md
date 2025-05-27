@@ -31,7 +31,7 @@
     │   ├── video_utils.py
     │   ├── report_generator.py
     │   └── config.py
-    ├── iit-ai-f2161462981d.json       # (示例名) Google API 密钥，供审核系统使用
+    ├── key.json       # (示例名) Google API 密钥，供审核系统使用
     └── README.md                      # 本文件
 
 
@@ -68,7 +68,7 @@
     │   ├── models.py                   # 定义数据模型 (Video, Metadata 等)
     │   ├── TT/
     │   │   └── get_video.py            # (推测) 包含 GetTiktokVideo 类，被 main.py 修改和使用
-    │   ├── E28_E25_KOL_AI打分标准 - 视频链接.csv # (示例) 默认的输入URL列表文件
+    │   ├── 打分标准.csv # (示例)        # (默认) 输入URL列表文件，其中必须包含有一列，列名为url
     │   ├── downloaded_videos/          # (自动创建) 存放下载视频的目录
     │   └── tiktok_download.log         # (自动创建) 下载日志文件
 
@@ -98,7 +98,7 @@
 
 1.  **确保文件和目录就位**:
     *   将 `tiktok_downloader_module` 文件夹放置在您的项目根目录。
-    *   确保您的 URL 列表文件 (例如 `E28_E25_KOL_AI打分标准 - 视频链接.csv`) 放在 `tiktok_downloader_module` 目录下，或者修改 `main.py` 中的路径。
+    *   确保您的 URL 列表文件 (例如 `打分标准.csv`) 放在 `tiktok_downloader_module` 目录下，或者修改 `main.py` 中的路径。
 2.  **运行下载脚本**:
     在项目根目录下，打开终端并执行：
     ```bash
@@ -187,7 +187,7 @@
     ```
 3.  **配置 API 密钥**:
     *   将您的 Google API 服务账号 JSON 密钥文件放置在项目根目录下 (与 `run_video_processing_module` 文件夹同级)。
-    *   确保 `run_video_processing_module/config.py` 中的 `KEY_PATH` (默认为 `../your-key-name.json`) 正确指向此密钥文件。例如，如果您的密钥文件名为 `iit-ai-f2161462981d.json`，则 `KEY_PATH` 应为 `../iit-ai-f2161462981d.json`。
+    *   确保 `run_video_processing_module/config.py` 中的 `KEY_PATH` (默认为 `../key.json`) 正确指向此密钥文件。
 4.  **检查/修改配置 (`config.py`)**:
     *   确认 `KEY_PATH`。
     *   可修改 `DEFAULT_GEMINI_PROJECT_ID` 和 `DEFAULT_GEMINI_LOCATION`。
@@ -210,13 +210,7 @@
 
 ### 🔍 Gemini 审核标准 (AI 审核系统)
 
-当前审核标准定义在 `run_video_processing_module/gemini_utils.py` 的 `prompt` 中，包括：
-1.  **环境**: 室内/室外。
-2.  **清洁/认证展示**: 特定画面或 TUV logo。
-3.  **特定文案/口播**: "hydrojet" 和 "deepclean"。
-4.  **品牌识别**: "Eufy"。
-
-Gemini 返回格式如：“合格-不合格-合格-合格”。若所有标准均为“合格”，则最终得分为“合格”。
+当前审核标准定义在 `run_video_processing_module/gemini_utils.py` 的 `prompt` 中，用户可根据自身品牌需要自定义设置。
 
 
 
